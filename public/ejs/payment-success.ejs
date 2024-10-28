@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sakila - Payment Succeed</title>
+	<link rel="icon" type="image/x-icon" href="/images/logo.png">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/payment-success.css">
+</head>
+<body>
+	<%- include('../ejs-parts/header') %>
+	<div class="success-container">
+		<h1>Your payment succeed!</h1>
+		<p>Thank you, <%= firstName %>! Payment succeeded! We will sent you message on gmail when you can retrieve your films from chosen shop.</p>
+		<button onclick="window.location.href='/'">Go back to main page</button>
+	</div>
+	<%- include('../ejs-parts/footer') %>
+	<script>
+		localStorage.removeItem('cartData');
+		document.getElementById('cart-count').textContent = '0';
+	</script>
+</body>
+</html>

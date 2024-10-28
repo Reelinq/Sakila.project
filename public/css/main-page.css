@@ -1,0 +1,28 @@
+#content {
+	display: flex;
+	height: 570px
+}
+
+#filmDiscovery {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	overflow-y: auto;
+	background-color: #92010c;
+}
+
+#searchContainer {
+	width: 25%;
+	background-color: #92010c;
+}
+
+#criteriaButtonsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	justify-content: center;
+}
+
+.criteria-button {
+	flex: 1 1 auto;
+}

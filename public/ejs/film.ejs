@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sakila - <%= film.title %></title>
+	<link rel="icon" type="image/x-icon" href="/images/logo.png">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/film.css">
+</head>
+<body>
+	<%- include('../ejs-parts/header') %>
+	<div class="film-container">
+		<div class="film-box">
+			<div id="leffaKuva">
+				<img src="/images/placeholder333x500.png" alt="Film Image">
+			</div>
+			<div class="film-details">
+				<div>
+					<h1><%= film.title %> (<a href="/search?yearRange=<%= film.release_year %>-<%= film.release_year %>"><%= film.release_year %></a>)</h1>
+					<p><%= film.description %></p>
+					<p><strong>Language:</strong> <a href="/search?languages=<%= film.language %>"><%= film.language %></a></p>
+					<p><strong>Category:</strong> <a href="/search?categories=<%= film.category %>"><%= film.category %></a></p>
+					<p><strong>Rating:</strong> <a href="/search?ratings=<%= film.rating %>"><%= film.rating %></a></p>
+					<p><strong>Length:</strong> <a href="/search?lengthRange=<%= film.length %>-<%= film.length %>"><%= film.length %> min</a></p>
+					<p><strong>Special features:</strong> <%= film.special_features %></p>
+					<p><strong>Actors:</strong><br>
+						<% actors.forEach(actor => { %>
+							<span><%= actor.first_name %> <%= actor.last_name %></span><br>
+						<% }) %>
+					</p>
+				</div>
+				<div class="additional-info">
+					<p><strong>Film rental duration:</strong> <%= film.rental_duration %> days</p>
+					<p><strong>Film rental rate:</strong> $<%= film.rental_rate %></p>
+					<p><strong>Replacement cost:</strong> $<%= film.replacement_cost %></p>
+					<button class="add-to-cart" data-film-id="<%= film.film_id %>" data-film-title="<%= film.title %>" data-film-rental-rate="<%= film.rental_rate %>">Add to cart</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include('../ejs-parts/footer') %>
+	<script src="../js/add-film-to-cart.js"></script>
+</body>
+</html>

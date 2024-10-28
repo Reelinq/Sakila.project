@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sakila - Main Page</title>
+	<link rel="icon" type="image/x-icon" href="/images/logo.png">
+	<link rel="stylesheet" type="text/css" href="../css/main-page.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body>
+	<%- include('../ejs-parts/header') %>
+	<div id="content">
+		<div id="filmDiscovery">
+			<% if (films.length > 0) { %>
+				<% films.forEach(film => { %>
+					<div class="film">
+						<a href="/film/<%= film.film_id %>">
+							<div class="film-text">
+								<h3><%= film.title %> (<%= film.release_year %>)</h3>
+								<p><%= film.language %> | <%= film.category %> | <%= film.rating %> | <%= film.length %> min</p>
+							</div>
+							<img src="/images/placeholder196x294.png" alt="Film Image">
+						</a>
+					</div>
+				<% }) %>
+			<% } else { %>
+				<p>No films found.</p>
+			<% } %>
+		</div>
+		<div id="searchContainer">
+			<form action="/search" method="GET">
+				<div id="searchBox">
+					<input id="searchInput" type="text" name="query" placeholder="Type here..."/>
+					<button type="submit" id="searchButton">
+						<svg viewBox="0 0 24 24">
+							<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+						</svg>
+					</button>
+				</div>
+				<input type="hidden" name="languages" id="selectedLanguages">
+				<input type="hidden" name="categories" id="selectedCategories">
+				<input type="hidden" name="yearRange" id="selectedYearRange">
+				<input type="hidden" name="ratings" id="selectedRatings">
+				<input type="hidden" name="lengthRange" id="selectedLengthRange">
+			</form>
+			<div id="selectedCriteria"></div>
+			<div id="criteriaButtonsContainer">
+				<button id="languageButton" class="criteria-button">Language</button>
+				<button id="categoryButton" class="criteria-button">Category</button>
+				<button id="yearButton" class="criteria-button">Year</button>
+				<button id="ratingButton" class="criteria-button">Rating</button>
+				<button id="lengthButton" class="criteria-button">Length</button>
+			</div>
+			<div id="languageModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>Choose language</h2>
+					<form id="languageForm">
+						<label><input type="checkbox" name="language" value="English"> English</label><br>
+						<label><input type="checkbox" name="language" value="Italian"> Italian</label><br>
+						<label><input type="checkbox" name="language" value="Japanese"> Japanese</label><br>
+						<label><input type="checkbox" name="language" value="Mandarin"> Mandarin</label><br>
+						<label><input type="checkbox" name="language" value="French"> French</label><br>
+						<label><input type="checkbox" name="language" value="German"> German</label><br>
+						<button type="button" class="applyCriteriaButton" id="applyLanguages">Apply</button>
+					</form>
+				</div>
+			</div>
+			<div id="categoryModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>Choose category</h2>
+					<form id="categoryForm">
+						<label><input type="checkbox" name="category" value="Action"> Action</label><br>
+						<label><input type="checkbox" name="category" value="Animation"> Animation</label><br>
+						<label><input type="checkbox" name="category" value="Children"> Children</label><br>
+						<label><input type="checkbox" name="category" value="Classics"> Classics</label><br>
+						<label><input type="checkbox" name="category" value="Comedy"> Comedy</label><br>
+						<label><input type="checkbox" name="category" value="Documentary"> Documentary</label><br>
+						<label><input type="checkbox" name="category" value="Drama"> Drama</label><br>
+						<label><input type="checkbox" name="category" value="Family"> Family</label><br>
+						<label><input type="checkbox" name="category" value="Foreign"> Foreign</label><br>
+						<label><input type="checkbox" name="category" value="Games"> Games</label><br>
+						<label><input type="checkbox" name="category" value="Horror"> Horror</label><br>
+						<label><input type="checkbox" name="category" value="Music"> Music</label><br>
+						<label><input type="checkbox" name="category" value="New"> New</label><br>
+						<label><input type="checkbox" name="category" value="Sci-Fi"> Sci-Fi</label><br>
+						<label><input type="checkbox" name="category" value="Sports"> Sports</label><br>
+						<label><input type="checkbox" name="category" value="Travel"> Travel</label><br>
+						<button type="button" class="applyCriteriaButton" id="applyCategories">Apply</button>
+					</form>
+				</div>
+			</div>
+			<div id="yearModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>Choose year</h2>
+					<div class="range_container">
+						<div class="sliders_control">
+							<input id="yearRangeMin" type="range" value="1900" min="1900" max="2023"/>
+							<input id="yearRangeMax" type="range" value="2023" min="1900" max="2023"/>
+						</div>
+						<div class="slider-values">
+							<span id="fromYear">1900</span> - <span id="toYear">2023</span>
+						</div>
+					</div>
+					<button type="button" class="applyCriteriaButton" id="applyYearRange">Apply</button>
+				</div>
+			</div>
+			<div id="ratingModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>Choose rating</h2>
+					<form id="ratingForm">
+						<label><input type="checkbox" name="rating" value="G"> G</label><br>
+						<label><input type="checkbox" name="rating" value="PG"> PG</label><br>
+						<label><input type="checkbox" name="rating" value="PG-13"> PG-13</label><br>
+						<label><input type="checkbox" name="rating" value="R"> R</label><br>
+						<label><input type="checkbox" name="rating" value="NC-17"> NC-17</label><br>
+						<button type="button" class="applyCriteriaButton" id="applyRatings">Apply</button>
+					</form>
+				</div>
+			</div>
+			<div id="lengthModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2>Choose length</h2>
+					<div class="range_container">
+						<div class="sliders_control">
+							<input id="lengthRangeMin" type="range" value="0" min="0" max="300"/>
+							<input id="lengthRangeMax" type="range" value="300" min="0" max="300"/>
+						</div>
+						<div class="slider-values">
+							<span id="fromLength">0</span> - <span id="toLength">300</span> min
+						</div>
+					</div>
+					<button type="button" class="applyCriteriaButton" id="applyLengthRange">Apply</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include('../ejs-parts/footer') %>
+	<script src="../js/search-filters.js"></script>
+</body>
+</html>

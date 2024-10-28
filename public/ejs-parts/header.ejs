@@ -1,0 +1,67 @@
+<header>
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<a href="/">
+		<img src="/images/logo.png" alt="Logo">
+		<button id="etusivuButton">Main page</button>
+	</a>
+	<div class="selectFilters">
+		<div class="dropdown">
+			<button class="dropbtn" id="category-dropdown-button">Category</button>
+			<div class="dropdown-content" id="categoryDropdown">
+				<button class="category-button" data-category="Action">Action</button><br>
+				<button class="category-button" data-category="Animation">Animation</button><br>
+				<button class="category-button" data-category="Children">Children</button><br>
+				<button class="category-button" data-category="Classics">Classics</button><br>
+				<button class="category-button" data-category="Comedy">Comedy</button><br>
+				<button class="category-button" data-category="Documentary">Documentary</button><br>
+				<button class="category-button" data-category="Drama">Drama</button><br>
+				<button class="category-button" data-category="Family">Family</button><br>
+				<button class="category-button" data-category="Foreign">Foreign</button><br>
+				<button class="category-button" data-category="Games">Games</button><br>
+				<button class="category-button" data-category="Horror">Horror</button><br>
+				<button class="category-button" data-category="Music">Music</button><br>
+				<button class="category-button" data-category="New">New</button><br>
+				<button class="category-button" data-category="Sci-Fi">Sci-Fi</button><br>
+				<button class="category-button" data-category="Sports">Sports</button><br>
+				<button class="category-button" data-category="Travel">Travel</button><br>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn" id="rating-dropdown-button">Rating</button>
+			<div class="dropdown-content" id="ratingDropdown">
+				<button class="rating-button" data-rating="G">G</button><br>
+				<button class="rating-button" data-rating="PG">PG</button><br>
+				<button class="rating-button" data-rating="PG-13">PG-13</button><br>
+				<button class="rating-button" data-rating="R">R</button><br>
+				<button class="rating-button" data-rating="NC-17">NC-17</button><br>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn" id="language-dropdown-button">Language</button>
+			<div class="dropdown-content" id="languageDropdown">
+				<button class="language-button" data-language="English">English</button><br>
+				<button class="language-button" data-language="Italian">Italian</button><br>
+				<button class="language-button" data-language="Japanese">Japanese</button><br>
+				<button class="language-button" data-language="Mandarin">Mandarin</button><br>
+				<button class="language-button" data-language="French">French</button><br>
+				<button class="language-button" data-language="German">German</button><br>
+			</div>
+		</div>
+	</div>
+	<div id="cartDiv">
+		<button id="cart-button">
+			<i class="fas fa-shopping-cart"></i>
+			<span id="cart-count">0</span>
+		</button>
+		<div id="cart-popup">
+			<h3>Shopping cart</h3>
+			<ul id="cart-items">
+			</ul>
+			<p id="empty-cart-message" style="display: none;">Your cart is empty</p>
+			<button id="checkout-button">Checkout</button>
+		</div>
+	</div>
+  <script src="../js/dropdown-buttons.js"></script>
+  <script src="../js/shopping-cart.js"></script>
+</header>

@@ -1,0 +1,61 @@
+.checkout-container {
+	max-width: 600px;
+	margin: 50px auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+}
+
+.checkout-container h1 {
+	text-align: center;
+	color: #92010c;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+.form-group input,
+.form-group select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.form-group.inline {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form-group.inline .form-group-item {
+	flex: 1;
+	margin-right: 10px;
+}
+
+.form-group.inline .form-group-item:last-child {
+	margin-right: 0;
+}
+
+.submit-button {
+	width: 100%;
+	padding: 10px;
+	background-color: #92010c;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.submit-button:hover {
+	background-color: #7a010a;
+}

@@ -1,0 +1,52 @@
+html, body {
+	height: 100%;
+}
+
+.searchContent {
+	margin-bottom: 10px;
+	position: sticky;
+	top: 0;
+	background-color: white;
+}
+
+#stickySearchContainer {
+	background-color: #92010c;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	padding: 10px 0;
+}
+
+#criteriaButtonsContainer {
+	display: flex;
+	justify-content: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-modal-content {
+	background-color: #ffffff;
+	padding: 20px;
+	width: 20%;
+	border-radius: 10px;
+	margin: 10px;
+	justify-content: left;
+}
+
+.searchFilmDiscovery {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 10px;
+	overflow-y: auto;
+	background-color: #92010c;
+}
+
+#noFilmsMessage {
+	padding: 5px 10px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	font-size: 14px;
+	margin-left: 10px;
+}
